@@ -34,12 +34,12 @@ Resources:
     infraStack:
         Type: AWS::CloudFormation::Stack
         Properties:
-            TemplateURL: ./infratest.yml
+            TemplateURL: https://raw.githubusercontent.com/knoppix50/devops22/main/infratest.yml
     serversStack:
         Type: AWS::CloudFormation::Stack
         DependsOn:
             - infraStack
         Properties:
-            TemplateURL: ./testdemoservers.yml
+            TemplateURL: https://raw.githubusercontent.com/knoppix50/devops22/main/testdemoservers.yml
 
         
