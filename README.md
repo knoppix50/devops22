@@ -1,2 +1,2 @@
 # devops22
-Scripts DevOps
+Scripts for Udagram Project on AWS Cloud DevOps Engineer.
