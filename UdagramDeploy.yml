@@ -34,12 +34,23 @@ Resources:
     infraStack:
         Type: AWS::CloudFormation::Stack
         Properties:
-            TemplateURL: https://raw.githubusercontent.com/knoppix50/devops22/main/infratest.yml
+            TemplateURL: https://cf-templates-1k036rf414fk4-us-east-1.s3.amazonaws.com/infratest.yml
+            Parameters:
+                EnvironmentName: !Ref EnvironmentName
+                VpcCIDR: !Ref VpcCIDR
+                PublicSubnet1CIDR: !Ref PublicSubnet1CIDR
+                PublicSubnet2CIDR: !Ref PublicSubnet2CIDR
+                PrivateSubnet1CIDR: !Ref PrivateSubnet1CIDR
+                PrivateSubnet2CIDR: !Ref PrivateSubnet2CIDR
+
+
     serversStack:
         Type: AWS::CloudFormation::Stack
         DependsOn:
             - infraStack
         Properties:
-            TemplateURL: https://raw.githubusercontent.com/knoppix50/devops22/main/testdemoservers.yml
+            TemplateURL: https://cf-templates-1k036rf414fk4-us-east-1.s3.amazonaws.com/testdemoservers.yml
+            Parameters:
+                EnvironmentName: !Ref EnvironmentName
 
         
